@@ -126,7 +126,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "RSA Encryption"))
         self.Encrypt.setText(_translate("MainWindow", "Encrypt"))
         self.Decrypt.setText(_translate("MainWindow", "Decrypt"))
         self.ExportKeystoFile.setText(_translate("MainWindow", "Export Keys to file"))
