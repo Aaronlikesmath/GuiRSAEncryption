@@ -32,35 +32,47 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
+
         self.Encrypt = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.Encrypt.setObjectName("Encrypt")
         self.verticalLayout.addWidget(self.Encrypt)
+        
         self.Decrypt = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.Decrypt.setObjectName("Decrypt")
         self.verticalLayout.addWidget(self.Decrypt)
+        
         self.SetPubKey = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.SetPubKey.setObjectName("SetPubKey")
         self.verticalLayout.addWidget(self.SetPubKey)
+        
         self.GenKeys = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.GenKeys.setObjectName("GenKeys")
         self.verticalLayout.addWidget(self.GenKeys)
+        
         self.ExportKeystoFile = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.ExportKeystoFile.setObjectName("ExportKeystoFile")
         self.verticalLayout.addWidget(self.ExportKeystoFile)
+        
         self.ImportKeysFromFile = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.ImportKeysFromFile.setObjectName("ImportKeysFromFile")
         self.verticalLayout.addWidget(self.ImportKeysFromFile)
+        
         self.Inouttext = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.Inouttext.setGeometry(QtCore.QRect(300, 0, 491, 541))
         self.Inouttext.setObjectName("Inouttext")
+        
         MainWindow.setCentralWidget(self.centralwidget)
+        
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 20))
         self.menubar.setObjectName("menubar")
+        
         MainWindow.setMenuBar(self.menubar)
+        
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        
         # Setting button actions
         self.GenKeys.clicked.connect(self.keygenner)
         self.SetPubKey.clicked.connect(self.setpublickey)
@@ -84,7 +96,7 @@ class Ui_MainWindow(object):
         self.keys = RSA.generate(2048)
         self.pubkey = self.keys.publickey()
         self.pubkeyex = self.pubkey.exportKey(format='PEM')
-        f = open("Key.pem", "wb")
+        f = open("PubKey.pem", "wb")
         f.write(self.pubkey.exportKey("PEM"))
         f.close()
         self.SetOutText("Key.pem")
@@ -132,7 +144,7 @@ class Ui_MainWindow(object):
         self.ExportKeystoFile.setText(_translate("MainWindow", "Export Keys to file"))
         self.ImportKeysFromFile.setText(_translate("MainWindow", "Import Keys from file"))
         self.SetPubKey.setText(_translate("MainWindow", "Set Pub Key from file"))
-        self.GenKeys.setText(_translate("MainWindow", "Generate New Keys write pub to file: Key.pem"))
+        self.GenKeys.setText(_translate("MainWindow", "Generate New Keys write PubKey to file"))
         self.Inouttext.setPlainText(_translate("MainWindow", "Paste your input here and it will be replaced with the output"))
 
 
