@@ -84,7 +84,7 @@ class Ui_MainWindow(object):
         self.keys = RSA.generate(2048)
         self.pubkey = self.keys.publickey()
         self.pubkeyex = self.pubkey.exportKey(format='PEM')
-        f = open("Key.pem", "wb")
+        f = open("PubKey.pem", "wb")
         f.write(self.pubkey.exportKey("PEM"))
         f.close()
         self.SetOutText("Key.pem")
